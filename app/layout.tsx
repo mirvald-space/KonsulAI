@@ -3,6 +3,8 @@ import { Overpass } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/utils";
 import { Analytics } from "@vercel/analytics/next";
+import { Header } from "@/components/ui/header";
+import { Footer } from "@/components/ui/footer";
 
 const overpass = Overpass({
   subsets: ["latin"],
@@ -52,7 +54,11 @@ export default function RootLayout({
           "flex flex-col min-h-screen"
         )}
       >
-        {children}
+        <Header />
+        <main className="flex-1 flex flex-col">
+          {children}
+        </main>
+        <Footer />
         <Analytics />
       </body>
     </html>

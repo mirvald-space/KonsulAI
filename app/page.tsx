@@ -7,8 +7,6 @@ const CallInterface = dynamic(() => import("@/components/CallInterface"), {
 
 export default function Page() {
   return (
-    <div className="grow flex flex-col">
-      <CallInterface />
-    </div>
+    <CallInterface />
   );
 }

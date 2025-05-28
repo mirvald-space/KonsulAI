@@ -12,7 +12,7 @@ interface HomePageProps {
 export default function HomePage({ onStartCall }: HomePageProps) {
   return (
     <motion.div
-      className="fixed inset-0 p-4 flex flex-col items-center justify-center bg-background"
+      className="flex flex-col items-center justify-center bg-background w-full h-full flex-1 py-8 px-4 md:px-6"
       initial="initial"
       animate="enter"
       exit="exit"
@@ -47,7 +47,7 @@ export default function HomePage({ onStartCall }: HomePageProps) {
       
       {/* Features section */}
       <motion.div 
-        className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10 max-w-4xl w-full"
+        className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10 max-w-4xl w-full px-4 md:px-0"
         variants={{
           initial: { opacity: 0, y: 20 },
           enter: { opacity: 1, y: 0, transition: { delay: 0.3 } },

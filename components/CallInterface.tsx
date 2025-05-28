@@ -62,13 +62,13 @@ export default function CallInterface() {
   };
 
   return (
-    <div className="relative flex flex-col items-center justify-center w-full h-full min-h-screen">
+    <div className="relative flex flex-col items-center justify-center w-full h-full flex-1">
       <AnimatePresence>
         {!isStarted && <HomePage onStartCall={handleStart} />}
       </AnimatePresence>
       
       {isStarted && (
-        <div className="flex flex-col items-center justify-center w-full h-full">
+        <div className="flex flex-col items-center justify-center w-full h-full px-4 md:px-6">
           {state.isConnecting ? (
             <div className="flex items-center justify-center">
               <Loader2 className="h-8 w-8 animate-spin text-primary" />
