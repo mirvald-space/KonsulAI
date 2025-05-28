@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
-import { GeistSans } from "geist/font/sans";
-import { GeistMono } from "geist/font/mono";
+import { Overpass } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/utils";
+
+const overpass = Overpass({
+  subsets: ["latin"],
+  variable: "--font-overpass",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Realtime Speech-to-Speech Assistant",
@@ -18,8 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          GeistSans.variable,
-          GeistMono.variable,
+          overpass.variable,
           "flex flex-col min-h-screen"
         )}
       >

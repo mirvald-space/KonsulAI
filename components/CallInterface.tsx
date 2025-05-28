@@ -119,7 +119,7 @@ export default function CallInterface() {
               }}
             >
               <Button
-                className="flex items-center gap-1.5 px-6 py-6 text-lg"
+                className="flex items-center bg-red-500 gap-1.5 px-6 py-6 text-lg rounded-full"
                 onClick={handleStart}
               >
                 <Mic className="size-5 opacity-70" />

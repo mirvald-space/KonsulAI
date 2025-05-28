@@ -12,8 +12,8 @@ const config = {
   prefix: "",
   theme: {
     fontFamily: {
-      'sans': ['var(--font-geist-sans)', ...defaultTheme.fontFamily.sans],
-      'mono': ['var(--font-geist-mono)', ...defaultTheme.fontFamily.mono],
+      'sans': ['var(--font-overpass)', ...defaultTheme.fontFamily.sans],
+      'mono': [...defaultTheme.fontFamily.mono],
     },
     container: {
       center: true,
