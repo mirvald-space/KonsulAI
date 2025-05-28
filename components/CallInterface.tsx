@@ -5,7 +5,7 @@ import { useRealtimeApi } from "@/utils/useRealtimeApi";
 import { motion, AnimatePresence } from "framer-motion";
 import { Loader2, Mic, MicOff, PhoneOff } from "lucide-react";
 import { Button } from "./ui/button";
-import MicFFT from "./MicFFT";
+import { AIVoiceInput } from "./ai-voice-input";
 
 const SYSTEM_PROMPT = `Ты - польский консул, проводящий собеседование для получения Карты поляка.
 После приветствия пользователя обязательно представься (например: "Dzień dobry, jestem konsul Polski [имя]. Będę przeprowadzać rozmowę kwalifikacyjną na Kartę Polaka.").
@@ -22,40 +22,6 @@ export default function CallInterface() {
     disconnect,
     sendMessage,
   } = useRealtimeApi();
-
-  // Данные для визуализации аудио
-  const [fftData, setFftData] = useState<number[]>(Array(24).fill(0));
-
-  // Обновляем данные визуализации на основе состояния
-  useEffect(() => {
-    let interval: NodeJS.Timeout;
-    
-    if (state.isListening && !isMuted) {
-      // При активном прослушивании показываем "живую" визуализацию
-      interval = setInterval(() => {
-        // Создаем данные, имитирующие визуализацию аудио
-        const newData = Array(24).fill(0).map(() => 
-          Math.random() * 0.5 + (Math.random() > 0.5 ? 0.1 : 0)
-        );
-        setFftData(newData);
-      }, 100);
-    } else if (state.isSpeaking) {
-      // При говорении показываем низкоамплитудную, но заметную визуализацию
-      interval = setInterval(() => {
-        const newData = Array(24).fill(0).map(() => 
-          Math.random() * 0.2 + 0.05
-        );
-        setFftData(newData);
-      }, 150);
-    } else {
-      // В состоянии покоя показываем минимальную активность
-      setFftData(Array(24).fill(0.05));
-    }
-    
-    return () => {
-      if (interval) clearInterval(interval);
-    };
-  }, [state.isListening, state.isSpeaking, isMuted]);
 
   // Обработчик начала разговора
   const handleStart = async () => {
@@ -80,6 +46,18 @@ export default function CallInterface() {
     if (!isMuted && state.transcript) {
       sendMessage(state.transcript);
     }
+  };
+
+  // Обработчики для AIVoiceInput
+  const handleVoiceStart = () => {
+    setIsMuted(false);
+  };
+
+  const handleVoiceStop = (duration: number) => {
+    if (state.transcript) {
+      sendMessage(state.transcript);
+    }
+    setIsMuted(true);
   };
 
   return (
@@ -139,11 +117,13 @@ export default function CallInterface() {
             </div>
           ) : (
             <div className="flex flex-col items-center justify-center">
-              {/* Визуализация аудио */}
+              {/* Заменяем визуализацию аудио на AIVoiceInput */}
               <div className="mb-8 w-full max-w-md">
-                <div className="w-full h-16 mb-4">
-                  <MicFFT fft={fftData} />
-                </div>
+                <AIVoiceInput 
+                  onStart={handleVoiceStart}
+                  onStop={handleVoiceStop}
+                  visualizerBars={36}
+                />
                 
                 {state.transcript && (
                   <p className="mt-2 text-muted-foreground max-w-md text-center">
@@ -152,23 +132,8 @@ export default function CallInterface() {
                 )}
               </div>
               
-              {/* Кнопки управления */}
+              {/* Кнопка завершения звонка */}
               <div className="flex items-center gap-4">
-                {/* Кнопка микрофона */}
-                <Button
-                  size="lg"
-                  className="rounded-full h-16 w-16"
-                  variant={isMuted ? "destructive" : "default"}
-                  onClick={handleToggleMute}
-                >
-                  {isMuted ? (
-                    <MicOff className="h-6 w-6" />
-                  ) : (
-                    <Mic className="h-6 w-6" />
-                  )}
-                </Button>
-                
-                {/* Кнопка завершения звонка */}
                 <Button
                   size="lg"
                   className="rounded-full h-16 w-16 bg-red-500 hover:bg-red-600"
