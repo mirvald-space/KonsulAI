@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FaMicrophone, FaBookOpen, FaComment, FaCircleCheck } from "react-icons/fa6";
+import { FaMicrophone } from "react-icons/fa6";
 import { Button } from "./ui/button";
 import Image from "next/image";
 
@@ -54,22 +54,55 @@ export default function HomePage({ onStartCall }: HomePageProps) {
           exit: { opacity: 0, y: 20 },
         }}
       >
-        <div className="flex flex-col items-center text-center p-4 bg-muted/50 rounded-lg">
-          <FaBookOpen className="h-10 w-10 mb-3 text-primary" />
-          <h3 className="font-semibold text-lg mb-1">Реалистичные вопросы</h3>
-          <p className="text-muted-foreground text-sm">Виртуальный консул задает вопросы об истории, культуре и традициях Польши</p>
+        <div className="flex flex-row md:flex-col items-start md:items-center text-left md:text-center p-4 bg-muted/50 rounded-lg">
+          <div className="mr-4 md:mr-0 md:mb-3 flex-shrink-0 w-[120px] h-[120px] md:w-[200px] md:h-[200px] relative">
+            <Image 
+              src="/image-1.png" 
+              alt="Реалистичные вопросы" 
+              fill
+              sizes="(max-width: 768px) 120px, 200px"
+              className="object-contain"
+              priority
+            />
+          </div>
+          <div>
+            <h3 className="font-semibold text-lg mb-1">Реалистичные вопросы</h3>
+            <p className="text-muted-foreground text-sm">Виртуальный консул задает вопросы об истории, культуре и традициях Польши</p>
+          </div>
         </div>
         
-        <div className="flex flex-col items-center text-center p-4 bg-muted/50 rounded-lg">
-          <FaComment className="h-10 w-10 mb-3 text-primary" />
-          <h3 className="font-semibold text-lg mb-1">Голосовое общение</h3>
-          <p className="text-muted-foreground text-sm">Практикуйте разговорную речь в реальном времени с обратной связью</p>
+        <div className="flex flex-row md:flex-col items-start md:items-center text-left md:text-center p-4 bg-muted/50 rounded-lg">
+          <div className="mr-4 md:mr-0 md:mb-3 flex-shrink-0 w-[120px] h-[120px] md:w-[200px] md:h-[200px] relative">
+            <Image 
+              src="/image-2.png" 
+              alt="Голосовое общение" 
+              fill
+              sizes="(max-width: 768px) 120px, 200px"
+              className="object-contain"
+              priority
+            />
+          </div>
+          <div>
+            <h3 className="font-semibold text-lg mb-1">Голосовое общение</h3>
+            <p className="text-muted-foreground text-sm">Практикуйте разговорную речь в реальном времени с обратной связью</p>
+          </div>
         </div>
         
-        <div className="flex flex-col items-center text-center p-4 bg-muted/50 rounded-lg">
-          <FaCircleCheck className="h-10 w-10 mb-3 text-primary" />
-          <h3 className="font-semibold text-lg mb-1">Оценка ответов</h3>
-          <p className="text-muted-foreground text-sm">Получите объективную оценку ваших ответов и полезные советы</p>
+        <div className="flex flex-row md:flex-col items-start md:items-center text-left md:text-center p-4 bg-muted/50 rounded-lg">
+          <div className="mr-4 md:mr-0 md:mb-3 flex-shrink-0 w-[120px] h-[120px] md:w-[200px] md:h-[200px] relative">
+            <Image 
+              src="/image-3.png" 
+              alt="Оценка ответов" 
+              fill
+              sizes="(max-width: 768px) 120px, 200px"
+              className="object-contain"
+              priority
+            />
+          </div>
+          <div>
+            <h3 className="font-semibold text-lg mb-1">Оценка ответов</h3>
+            <p className="text-muted-foreground text-sm">Получите объективную оценку ваших ответов и полезные советы</p>
+          </div>
         </div>
       </motion.div>
       
