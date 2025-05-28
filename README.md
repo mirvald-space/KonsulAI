@@ -1,25 +1,70 @@
-<div align="center">
-  <img src="https://storage.googleapis.com/hume-public-logos/hume/hume-banner.png">
-  <h1>EVI Next.js App Router Example</h1>
-</div>
+# GPT-4o Realtime API Голосовой ассистент
 
-![preview.png](preview.png)
+Голосовой ассистент на русском языке с использованием OpenAI GPT-4o-realtime-preview через Realtime API.
 
-## Overview
+## Особенности
 
-This project features a sample implementation of Hume's [Empathic Voice Interface](https://hume.docs.buildwithfern.com/docs/empathic-voice-interface-evi/overview) using Hume's React SDK. Here, we have a simple EVI that uses the Next.js App Router.
+- 🎙️ Голосовое общение в реальном времени через WebRTC
+- 🔊 Синтез речи в реальном времени
+- 🇷🇺 Полная поддержка русского языка
+- ⚡ Минимальная задержка благодаря Realtime API
 
-## Project deployment
+## Установка
 
-Click the button below to deploy this example project with Vercel:
+1. Клонируйте репозиторий:
+```bash
+git clone https://github.com/yourusername/speech-to-speech-assistant.git
+cd speech-to-speech-assistant
+```
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fhumeai%2Fhume-evi-next-js-starter&env=HUME_API_KEY,HUME_SECRET_KEY)
+2. Установите зависимости:
+```bash
+npm install
+# или
+yarn install
+# или
+pnpm install
+```
 
-Below are the steps to completing deployment:
+3. Создайте файл `.env.local` в корне проекта и добавьте свой API ключ OpenAI:
+```
+OPENAI_API_KEY=ваш_ключ_api_openai
+```
 
-1. Create a Git Repository for your project.
-2. Provide the required environment variables. To get your API key and Client Secret key, log into the portal and visit the [API keys page](https://beta.hume.ai/settings/keys).
+## Запуск
 
-## Support
+Запустите приложение в режиме разработки:
 
-If you have questions, require assistance, or wish to engage in discussions pertaining to this starter template, [please reach out to us on Discord](https://link.hume.ai/discord).
+```bash
+npm run dev
+# или
+yarn dev
+# или
+pnpm dev
+```
+
+Откройте [http://localhost:3000](http://localhost:3000) в вашем браузере.
+
+## Использование
+
+1. Нажмите кнопку "Начать разговор"
+2. Дождитесь подключения к Realtime API
+3. Нажмите на кнопку микрофона, чтобы начать говорить
+4. Ассистент ответит вам голосом в реальном времени
+
+## Технологии
+
+- Next.js 14
+- React
+- OpenAI Realtime API (GPT-4o-realtime-preview)
+- WebRTC
+- Tailwind CSS
+- Framer Motion
+
+## О Realtime API
+
+Realtime API - это новый API от OpenAI, который позволяет создавать приложения с минимальной задержкой для голосового общения в реальном времени. Он использует WebRTC для передачи аудио напрямую между клиентом и моделью, что обеспечивает более естественное общение.
+
+## Лицензия
+
+MIT
