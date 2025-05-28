@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Overpass } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/utils";
+import { Analytics } from "@vercel/analytics/next";
 
 const overpass = Overpass({
   subsets: ["latin"],
@@ -10,8 +11,19 @@ const overpass = Overpass({
 });
 
 export const metadata: Metadata = {
-  title: "Realtime Speech-to-Speech Assistant",
-  description: "A Next.js application for realtime speech-to-speech conversation",
+  title: "Подготовка к собеседованию на Карту Поляка — онлайн тренажер и ассистент",
+  description:
+    "Онлайн сервис для подготовки к собеседованию на Карту Поляка: тренажер вопросов и ответов, практика устной речи, голосовой диалог с искусственным интеллектом. Помощь в изучении польского языка и успешном прохождении интервью на Карту Поляка.",
+  keywords: [
+    "Карта Поляка",
+    "подготовка к собеседованию",
+    "тренажер Карта Поляка",
+    "вопросы и ответы Карта Поляка",
+    "онлайн ассистент Карта Поляка",
+    "польский язык",
+    "AI собеседование",
+    "интервью Карта Поляка"
+  ].join(", "),
 };
 
 export default function RootLayout({
@@ -20,7 +32,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="ru">
       <body
         className={cn(
           overpass.variable,
@@ -28,6 +40,7 @@ export default function RootLayout({
         )}
       >
         {children}
+        <Analytics />
       </body>
     </html>
   );
