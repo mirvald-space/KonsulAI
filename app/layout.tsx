@@ -33,6 +33,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
+      <head>
+        <meta property="og:title" content="Подготовка к собеседованию на Карту Поляка — онлайн тренажер и ассистент" />
+        <meta property="og:description" content="Онлайн сервис для подготовки к собеседованию на Карту Поляка: тренажер вопросов и ответов, практика устной речи, голосовой диалог с искусственным интеллектом. Помощь в изучении польского языка и успешном прохождении интервью на Карту Поляка." />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="ru_RU" />
+        <meta property="og:url" content="https://konsulai.polishdom.com" />
+        <meta property="og:image" content="/favicon.ico" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Подготовка к собеседованию на Карту Поляка — онлайн тренажер и ассистент" />
+        <meta name="twitter:description" content="Онлайн сервис для подготовки к собеседованию на Карту Поляка: тренажер вопросов и ответов, практика устной речи, голосовой диалог с искусственным интеллектом." />
+        <meta name="twitter:image" content="/favicon.ico" />
+        <link rel="icon" href="/favicon.ico" />
+      </head>
       <body
         className={cn(
           overpass.variable,
